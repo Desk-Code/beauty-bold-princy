@@ -1,5 +1,5 @@
 import 'package:beauty_master/components/BMAvailabilityComponent.dart';
-import 'package:beauty_master/screens/BMPurchaseMoreScreen.dart';
+import 'package:beauty_master/screens/BMFutureUpdateScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -163,7 +163,7 @@ class _BMCalenderScreenState extends State<BMCalenderScreen> {
         leadingWidth: 30,
         iconTheme: IconThemeData(color: bmPrimaryColor),
       ),
-      body: PurchaseMoreScreen(),
+      body: FutureUpdateScreen(),
       floatingActionButton: !widget.isStaffBooking
           ? Container(
               padding: EdgeInsets.only(left: 8),

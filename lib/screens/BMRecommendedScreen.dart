@@ -1,4 +1,4 @@
-import 'package:beauty_master/screens/BMPurchaseMoreScreen.dart';
+import 'package:beauty_master/screens/BMFutureUpdateScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -51,7 +51,7 @@ class _BMRecommendedScreenState extends State<BMRecommendedScreen> {
           8.width,
         ],
       ),
-      body: PurchaseMoreScreen(),
+      body: FutureUpdateScreen(),
       floatingActionButton: BMFloatingActionComponent(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

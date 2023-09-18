@@ -1,4 +1,4 @@
-import 'package:beauty_master/screens/BMPurchaseMoreScreen.dart';
+import 'package:beauty_master/screens/BMFutureUpdateScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -75,7 +75,7 @@ class _BMChatScreenState extends State<BMChatScreen> {
           color: appStore.isDarkModeOn ? bmSecondBackgroundColorDark : bmSecondBackgroundColorLight,
           borderRadius: radiusOnly(topRight: 32, topLeft: 32),
         ),
-        child: PurchaseMoreScreen(),
+        child: FutureUpdateScreen(),
       ),
       bottomNavigationBar: Form(
         key: form_key,

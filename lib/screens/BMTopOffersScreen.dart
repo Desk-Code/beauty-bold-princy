@@ -1,4 +1,4 @@
-import 'package:beauty_master/screens/BMPurchaseMoreScreen.dart';
+import 'package:beauty_master/screens/BMFutureUpdateScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -45,13 +45,13 @@ class _BMTopOffersScreenState extends State<BMTopOffersScreen> {
           IconButton(
             icon: Icon(Icons.search_sharp, size: 30, color: bmPrimaryColor),
             onPressed: () {
-              PurchaseMoreScreen(enableAppbar: true).launch(context);
+              FutureUpdateScreen(enableAppbar: true).launch(context);
             },
           ),
           8.width,
         ],
       ),
-      body: PurchaseMoreScreen(),
+      body: FutureUpdateScreen(),
       floatingActionButton: BMFloatingActionComponent(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

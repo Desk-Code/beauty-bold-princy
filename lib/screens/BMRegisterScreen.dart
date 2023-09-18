@@ -179,8 +179,13 @@ class _BMRegisterScreenState extends State<BMRegisterScreen> {
                         color: bmPrimaryColor,
                         onTap: () async {
                           if (globalKey.currentState!.validate()) {
-                            await signUp();
-                            BMEnableLocationScreen().launch(context);
+                            try {
+                              await signUp();
+                              BMEnableLocationScreen().launch(context);
+                            } catch (e) {
+                              FlutterToast().showMessage(
+                                  "your account is already created");
+                            }
                           }
                         },
                       ),
@@ -195,7 +200,7 @@ class _BMRegisterScreenState extends State<BMRegisterScreen> {
                       30.height,
                       BMSocialIconsLoginComponents().center().onTap(() {
                         FlutterToast()
-                            .showMessage("It's Implementing in Future Update.");
+                            .showMessage("This Feature is Under Development");
                       }),
                       30.height,
                       Text(

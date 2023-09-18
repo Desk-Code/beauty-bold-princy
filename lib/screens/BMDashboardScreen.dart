@@ -1,4 +1,4 @@
-import 'package:beauty_master/screens/BMPurchaseMoreScreen.dart';
+import 'package:beauty_master/screens/BMFutureUpdateScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -29,7 +29,7 @@ class _BMDashboardScreenState extends State<BMDashboardScreen> {
     if (selectedTab == 0) {
       return BMHomeFragment();
     } else if (selectedTab == 1) {
-      return PurchaseMoreScreen();
+      return FutureUpdateScreen();
     } else if (selectedTab == 2) {
       return BMAppointmentFragment();
     } else if (selectedTab == 3) {

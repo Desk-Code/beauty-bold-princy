@@ -1,5 +1,5 @@
 import 'package:beauty_master/components/BMShopComponent.dart';
-import 'package:beauty_master/screens/BMPurchaseMoreScreen.dart';
+import 'package:beauty_master/screens/BMFutureUpdateScreen.dart';
 import 'package:beauty_master/utils/BMDataGenerator.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
@@ -105,7 +105,7 @@ class _BMShoppingScreenState extends State<BMShoppingScreen> {
                         ),
                       ],
                     ),
-              widget.isOrders ? PurchaseMoreScreen().withSize(width: context.width(), height: context.height()) : Offstage(),
+              widget.isOrders ? FutureUpdateScreen().withSize(width: context.width(), height: context.height()) : Offstage(),
               40.height,
             ],
           ),

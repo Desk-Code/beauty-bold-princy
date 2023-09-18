@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.prokit.beauty_master.app-mergeDebugResources-25:/values-mr/values-mr.xml",
+            "outputFile": "com.prokit.beauty_master.app-mergeDebugResources-32:/values-mr/values-mr.xml",
             "map": [
                 {
                     "source": "C:\\Users\\CodeDesk\\.gradle\\caches\\transforms-3\\09d03ee62229f27d112d6e2bf949dc58\\transformed\\browser-1.5.0\\res\\values-mr\\values-mr.xml",

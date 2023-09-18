@@ -1,4 +1,6 @@
+import 'package:beauty_master/screens/BMLoginScreen.dart';
 import 'package:beauty_master/utils/BMConstants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -27,14 +29,32 @@ class _BMMoreFragmentState extends State<BMMoreFragment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appStore.isDarkModeOn ? appStore.scaffoldBackground! : bmLightScaffoldBackgroundColor,
+      backgroundColor: appStore.isDarkModeOn
+          ? appStore.scaffoldBackground!
+          : bmLightScaffoldBackgroundColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           upperContainer(
             screenContext: context,
             child: Column(
-              children: [16.height, Image.asset('images/face_two.jpg', height: 100, width: 100, fit: BoxFit.cover).cornerRadiusWithClipRRect(100), 8.height, Text('anita@gmail.com', style: boldTextStyle(color: white))],
+              children: [
+                16.height,
+                // Image.asset('images/face_two.jpg',
+                //         height: 100, width: 100, fit: BoxFit.cover)
+                Container(
+                  height: 100,
+                  width: 100,
+                  alignment: Alignment.center,
+                  child: Icon(
+                    Icons.person,
+                    size: 100,
+                  ),
+                ).cornerRadiusWithClipRRect(100),
+                8.height,
+                Text('${FirebaseAuth.instance.currentUser!.email}',
+                    style: boldTextStyle(color: white))
+              ],
             ),
           ),
           lowerContainer(
@@ -43,9 +63,19 @@ class _BMMoreFragmentState extends State<BMMoreFragment> {
                 16.height,
                 Row(
                   children: [
-                    appStore.isDarkModeOn ? Icon(Icons.brightness_2, color: bmPrimaryColor, size: 30) : Icon(Icons.wb_sunny_rounded, color: bmPrimaryColor, size: 30),
+                    appStore.isDarkModeOn
+                        ? Icon(Icons.brightness_2,
+                            color: bmPrimaryColor, size: 30)
+                        : Icon(Icons.wb_sunny_rounded,
+                            color: bmPrimaryColor, size: 30),
                     16.width,
-                    Text('Choose App Theme', style: boldTextStyle(size: 20, color: appStore.isDarkModeOn ? white : bmSpecialColorDark)).expand(),
+                    Text('Choose App Theme',
+                            style: boldTextStyle(
+                                size: 20,
+                                color: appStore.isDarkModeOn
+                                    ? white
+                                    : bmSpecialColorDark))
+                        .expand(),
                     Switch(
                       value: appStore.isDarkModeOn,
                       activeTrackColor: bmSpecialColor,
@@ -57,7 +87,9 @@ class _BMMoreFragmentState extends State<BMMoreFragment> {
                       },
                     ),
                   ],
-                ).paddingOnly(left: 16, top: 8, right: 16, bottom: 8).onTap(() async {
+                )
+                    .paddingOnly(left: 16, top: 8, right: 16, bottom: 8)
+                    .onTap(() async {
                   if (getBoolAsync(isDarkModeOnPref)) {
                     appStore.toggleDarkMode(value: false);
                     await setValue(isDarkModeOnPref, false);
@@ -68,24 +100,36 @@ class _BMMoreFragmentState extends State<BMMoreFragment> {
                 }),
                 SettingItemWidget(
                   title: 'Check Appointments',
-                  leading: Icon(Icons.calendar_today, color: bmPrimaryColor, size: 30),
-                  titleTextStyle: boldTextStyle(size: 20, color: appStore.isDarkModeOn ? white : bmSpecialColorDark),
+                  leading: Icon(Icons.calendar_today,
+                      color: bmPrimaryColor, size: 30),
+                  titleTextStyle: boldTextStyle(
+                      size: 20,
+                      color:
+                          appStore.isDarkModeOn ? white : bmSpecialColorDark),
                   onTap: () {
                     BMAppointmentFragment().launch(context);
                   },
                 ),
                 SettingItemWidget(
                   title: 'Favourites',
-                  leading: Icon(Icons.favorite, color: bmPrimaryColor, size: 30),
-                  titleTextStyle: boldTextStyle(size: 20, color: appStore.isDarkModeOn ? white : bmSpecialColorDark),
+                  leading:
+                      Icon(Icons.favorite, color: bmPrimaryColor, size: 30),
+                  titleTextStyle: boldTextStyle(
+                      size: 20,
+                      color:
+                          appStore.isDarkModeOn ? white : bmSpecialColorDark),
                   onTap: () {
                     BMFavouritesScreen().launch(context);
                   },
                 ),
                 SettingItemWidget(
                   title: 'Orders',
-                  leading: Icon(Icons.shopping_basket_rounded, color: bmPrimaryColor, size: 30),
-                  titleTextStyle: boldTextStyle(size: 20, color: appStore.isDarkModeOn ? white : bmSpecialColorDark),
+                  leading: Icon(Icons.shopping_basket_rounded,
+                      color: bmPrimaryColor, size: 30),
+                  titleTextStyle: boldTextStyle(
+                      size: 20,
+                      color:
+                          appStore.isDarkModeOn ? white : bmSpecialColorDark),
                   onTap: () {
                     BMShoppingScreen(isOrders: true).launch(context);
                   },
@@ -93,11 +137,35 @@ class _BMMoreFragmentState extends State<BMMoreFragment> {
                 SettingItemWidget(
                   title: 'Contact Us',
                   leading: Icon(Icons.call, color: bmPrimaryColor, size: 30),
-                  titleTextStyle: boldTextStyle(size: 20, color: appStore.isDarkModeOn ? white : bmSpecialColorDark),
+                  titleTextStyle: boldTextStyle(
+                      size: 20,
+                      color:
+                          appStore.isDarkModeOn ? white : bmSpecialColorDark),
                   onTap: () {
                     showSelectStaffBottomSheet(context);
                   },
-                )
+                ),
+                SettingItemWidget(
+                  title: 'Log Out',
+                  leading: Icon(Icons.logout_rounded,
+                      color: bmPrimaryColor, size: 30),
+                  titleTextStyle: boldTextStyle(
+                      size: 20,
+                      color:
+                          appStore.isDarkModeOn ? white : bmSpecialColorDark),
+                  onTap: () async {
+                    await FirebaseAuth.instance.signOut();
+                    SharedPreferences pref =
+                        await SharedPreferences.getInstance();
+                    pref.setBool('showHome', false);
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BMLoginScreen(),
+                        ),
+                        (route) => false);
+                  },
+                ),
               ],
             ),
             screenContext: context,

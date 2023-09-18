@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.prokit.beauty_master.app-mergeDebugResources-25:/values-ca/values-ca.xml",
+            "outputFile": "com.prokit.beauty_master.app-mergeDebugResources-32:/values-ca/values-ca.xml",
             "map": [
                 {
                     "source": "C:\\Users\\CodeDesk\\.gradle\\caches\\transforms-3\\22e76ea82585127186c0cbf5bbc6dc6a\\transformed\\jetified-play-services-base-18.1.0\\res\\values-ca\\values.xml",

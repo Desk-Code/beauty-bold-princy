@@ -1,4 +1,4 @@
-import 'package:beauty_master/screens/BMPurchaseMoreScreen.dart';
+import 'package:beauty_master/screens/BMFutureUpdateScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -41,7 +41,7 @@ class _BMFavouritesScreenState extends State<BMFavouritesScreen> {
         ),
         title: titleText(title: 'Favourites'),
       ),
-      body: PurchaseMoreScreen(),
+      body: FutureUpdateScreen(),
     );
   }
 }

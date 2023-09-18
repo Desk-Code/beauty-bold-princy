@@ -1,4 +1,4 @@
-import 'package:beauty_master/screens/BMPurchaseMoreScreen.dart';
+import 'package:beauty_master/screens/BMFutureUpdateScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -28,7 +28,7 @@ class _BMCallScreenState extends State<BMCallScreen> {
         width: context.width(),
         child: Stack(
           children: [
-            PurchaseMoreScreen(),
+            FutureUpdateScreen(),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
