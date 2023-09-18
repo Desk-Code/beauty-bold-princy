@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "520687669121",
+    "project_id": "beauty-bold-c2777",
+    "storage_bucket": "beauty-bold-c2777.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520687669121:android:9f7dd4c2203ad411c1e280",
+        "android_client_info": {
+          "package_name": "com.prokit.beauty_master"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSmi1eXaeOmozJSeuNwzcd-uoSS0ls-QU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

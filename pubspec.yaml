@@ -1,0 +1,50 @@
+name: beauty_master
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Base
+  cupertino_icons: ^1.0.4
+  nb_utils: ^4.4.12
+  intl: ^0.17.0
+  flutter_vector_icons: ^1.0.0
+  share: ^2.0.4
+  url_launcher: ^6.0.20
+  http: ^0.13.4
+  html: ^0.15.0
+  package_info: ^2.0.2
+  mobx: ^2.0.6+1
+  flutter_mobx: ^2.0.4
+  google_maps_flutter: ^2.1.1
+  flutter_svg: ^0.22.0
+  google_fonts: ^4.0.4
+  firebase_core: ^2.15.1
+  firebase_auth: ^4.9.0
+  firebase_database: ^10.2.5
+  fluttertoast: ^8.2.2
+  form_field_validator: ^1.1.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mobx_codegen: ^2.0.5+2
+  build_runner: ^2.1.7
+  #flutter packages pub run build_runner build --delete-conflicting-outputs
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - images/
