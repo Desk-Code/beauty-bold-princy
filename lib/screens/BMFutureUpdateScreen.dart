@@ -1,3 +1,4 @@
+import 'package:beauty_master/main.dart';
 import 'package:beauty_master/utils/BMColors.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -12,7 +13,9 @@ class FutureUpdateScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: bmLightScaffoldBackgroundColor,
+        backgroundColor: appStore.isDarkModeOn
+            ? appStore.scaffoldBackground!
+            : bmLightScaffoldBackgroundColor,
         body: Stack(
           children: [
             Icon(Icons.arrow_back, size: 24).paddingAll(16).onTap(() {
@@ -25,7 +28,11 @@ class FutureUpdateScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    decoration: boxDecorationDefault(),
+                    decoration: BoxDecoration(
+                      color: appStore.isDarkModeOn
+                          ? appStore.scaffoldBackground!
+                          : bmLightScaffoldBackgroundColor,
+                    ),
                     padding: EdgeInsets.all(16),
                     child: Lottie.asset("images/feture.json"),
                   ),
