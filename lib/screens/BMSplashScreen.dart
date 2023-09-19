@@ -1,8 +1,8 @@
 import 'package:beauty_master/splash_services.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-import '../main.dart';
 import '../utils/BMColors.dart';
 
 class BMSplashScreen extends StatefulWidget {
@@ -12,21 +12,14 @@ class BMSplashScreen extends StatefulWidget {
   _BMSplashScreenState createState() => _BMSplashScreenState();
 }
 
-class _BMSplashScreenState extends State<BMSplashScreen> {
+class _BMSplashScreenState extends State<BMSplashScreen>
+    with TickerProviderStateMixin {
+  late final AnimationController _animationController;
   @override
   void initState() {
+    _animationController = AnimationController(vsync: this);
     super.initState();
-    init();
-  }
-
-  Future<void> init() async {
-    setStatusBarColor(appStore.isDarkModeOn
-        ? appStore.scaffoldBackground!
-        : bmLightScaffoldBackgroundColor);
-    await 3.seconds.delay;
     finish(context);
-
-    SplashServices().isLogin(context);
   }
 
   @override
@@ -37,20 +30,26 @@ class _BMSplashScreenState extends State<BMSplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appStore.isDarkModeOn
-          ? appStore.scaffoldBackground!
-          : bmLightScaffoldBackgroundColor,
+      backgroundColor: Colors.white,
       body: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('images/beautymaster_logo.png', height: 200),
-          Text(
-            'Beauty Master',
-            style: boldTextStyle(
-              size: 20,
-              color: appStore.isDarkModeOn ? Colors.white : bmSpecialColorDark,
+          SizedBox(
+            child: Lottie.asset(
+              "images/animation_lkece2qv.json",
+              controller: _animationController,
+              onLoaded: (time) {
+                _animationController
+                  ..duration = time.duration
+                  ..forward()
+                      .then((value) => SplashServices().isLogin(context));
+              },
             ),
+          ),
+          Text(
+            'Beauty Bold',
+            style: boldTextStyle(size: 20, color: bmSpecialColorDark),
           ),
         ],
       ).center(),

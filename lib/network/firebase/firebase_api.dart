@@ -3,7 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 class FirebaseApi {
   static final DatabaseReference db =
       FirebaseDatabase.instance.ref('Appoiment');
-
+  static List<Map<dynamic, dynamic>> appoimentData = [];
   static int dataLength = 0;
   static Future<void> setAppoimentData({
     required String email,
@@ -35,7 +35,7 @@ class FirebaseApi {
     data.forEach((key, value) {
       allData.add(value);
     });
-    List<Map> appoimentData = [];
+
     for (var ele in allData) {
       if (ele['email'] == email) {
         appoimentData.add(ele);
@@ -43,5 +43,9 @@ class FirebaseApi {
       }
     }
     return appoimentData;
+  }
+
+  static Future<void> appoimentDeleteData({required String selectedkey}) async {
+    await db.child(selectedkey).remove();
   }
 }

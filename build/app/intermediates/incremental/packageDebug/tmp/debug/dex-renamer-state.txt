@@ -1,4 +1,4 @@
-#Tue Sep 19 18:11:55 IST 2023
+#Tue Sep 19 20:51:58 IST 2023
 base.0=D\:\\princy\\beauty-bold-main\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=D\:\\princy\\beauty-bold-main\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
 base.2=D\:\\princy\\beauty-bold-main\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

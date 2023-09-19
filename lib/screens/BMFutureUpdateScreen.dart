@@ -1,5 +1,6 @@
 import 'package:beauty_master/utils/BMColors.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 class FutureUpdateScreen extends StatelessWidget {
@@ -26,8 +27,7 @@ class FutureUpdateScreen extends StatelessWidget {
                   Container(
                     decoration: boxDecorationDefault(),
                     padding: EdgeInsets.all(16),
-                    child: Image.asset("images/beautymaster_logo.png",
-                        height: 100),
+                    child: Lottie.asset("images/feture.json"),
                   ),
                   22.height,
                   Text(
