@@ -53,7 +53,7 @@ class _BMMoreFragmentState extends State<BMMoreFragment> {
                 ).cornerRadiusWithClipRRect(100),
                 8.height,
                 Text('${FirebaseAuth.instance.currentUser!.email}',
-                    style: boldTextStyle(color: white))
+                    style: boldTextStyle(color: white)),
               ],
             ),
           ),
@@ -155,9 +155,6 @@ class _BMMoreFragmentState extends State<BMMoreFragment> {
                           appStore.isDarkModeOn ? white : bmSpecialColorDark),
                   onTap: () async {
                     await FirebaseAuth.instance.signOut();
-                    SharedPreferences pref =
-                        await SharedPreferences.getInstance();
-                    pref.setBool('showHome', false);
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(

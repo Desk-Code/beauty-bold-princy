@@ -201,9 +201,6 @@ class _BMLoginScreenState extends State<BMLoginScreen> {
                             if (globalKey.currentState!.validate()) {
                               try {
                                 await signIn();
-                                SharedPreferences pref =
-                                    await SharedPreferences.getInstance();
-                                pref.setBool('showHome', true);
                                 BMDashboardScreen(flag: false).launch(context);
                               } catch (e) {
                                 FlutterToast().showMessage(

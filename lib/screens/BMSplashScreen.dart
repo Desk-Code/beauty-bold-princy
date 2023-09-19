@@ -1,10 +1,9 @@
-import 'package:beauty_master/screens/BMDashboardScreen.dart';
+import 'package:beauty_master/splash_services.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../main.dart';
 import '../utils/BMColors.dart';
-import 'BMWalkThroughScreen.dart';
 
 class BMSplashScreen extends StatefulWidget {
   const BMSplashScreen({Key? key}) : super(key: key);
@@ -14,7 +13,6 @@ class BMSplashScreen extends StatefulWidget {
 }
 
 class _BMSplashScreenState extends State<BMSplashScreen> {
-  bool? isShowHome;
   @override
   void initState() {
     super.initState();
@@ -25,13 +23,10 @@ class _BMSplashScreenState extends State<BMSplashScreen> {
     setStatusBarColor(appStore.isDarkModeOn
         ? appStore.scaffoldBackground!
         : bmLightScaffoldBackgroundColor);
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    isShowHome = pref.getBool('showHome') ?? true;
     await 3.seconds.delay;
     finish(context);
-    (!isShowHome!)
-        ? BMWalkThroughScreen().launch(context, isNewTask: true)
-        : BMDashboardScreen(flag: false).launch(context);
+
+    SplashServices().isLogin(context);
   }
 
   @override
@@ -50,12 +45,13 @@ class _BMSplashScreenState extends State<BMSplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset('images/beautymaster_logo.png', height: 200),
-          Text('Beauty Master',
-              style: boldTextStyle(
-                  size: 20,
-                  color: appStore.isDarkModeOn
-                      ? Colors.white
-                      : bmSpecialColorDark)),
+          Text(
+            'Beauty Master',
+            style: boldTextStyle(
+              size: 20,
+              color: appStore.isDarkModeOn ? Colors.white : bmSpecialColorDark,
+            ),
+          ),
         ],
       ).center(),
     );

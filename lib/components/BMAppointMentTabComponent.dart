@@ -44,7 +44,7 @@ class BMAppointMentTabComponent extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: getMoreAppointmentsList().map((e) {
             return BMAppointmentComponent(element: e);
-          }).toList(),
+          }).toList(),   
         )
       ],
     );
