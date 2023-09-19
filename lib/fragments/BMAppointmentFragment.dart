@@ -50,15 +50,15 @@ class _BMAppointmentFragmentState extends State<BMAppointmentFragment> {
         leadingWidth: 16,
         title: titleText(title: 'Appointments'),
       ),
-      body: Container(
-        margin: EdgeInsets.only(top: 16),
-        decoration: BoxDecoration(
-          color: appStore.isDarkModeOn
-              ? bmSecondBackgroundColorDark
-              : bmSecondBackgroundColorLight,
-          borderRadius: radiusOnly(topLeft: 32, topRight: 32),
-        ),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.only(top: 16),
+          decoration: BoxDecoration(
+            color: appStore.isDarkModeOn
+                ? bmSecondBackgroundColorDark
+                : bmSecondBackgroundColorLight,
+            borderRadius: radiusOnly(topLeft: 32, topRight: 32),
+          ),
           child: Padding(
             padding: EdgeInsets.all(16),
             child: Column(
@@ -66,8 +66,19 @@ class _BMAppointmentFragmentState extends State<BMAppointmentFragment> {
               children: [
                 FutureBuilder(
                   future: futureAppoimentData,
-                  builder: (context, snapshot) =>
-                      commonAppoimentTile(isSelected: true),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return Column(
+                        children: List.generate(
+                          FirebaseApi.dataLength,
+                          (index) =>
+                              commonAppoimentTile(context, isSelected: true),
+                        ),
+                      );
+                    } else {
+                      return CircularProgressIndicator();
+                    }
+                  },
                 ),
               ],
             ),

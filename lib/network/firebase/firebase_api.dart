@@ -3,6 +3,8 @@ import 'package:firebase_database/firebase_database.dart';
 class FirebaseApi {
   static final DatabaseReference db =
       FirebaseDatabase.instance.ref('Appoiment');
+
+  static int dataLength = 0;
   static Future<void> setAppoimentData({
     required String email,
     required String userName,
@@ -29,6 +31,7 @@ class FirebaseApi {
     Map data =
         await db.once().then((value) => value.snapshot.value as Map? ?? {});
     List<Map> allData = [];
+    int index = 0;
     data.forEach((key, value) {
       allData.add(value);
     });
@@ -36,6 +39,7 @@ class FirebaseApi {
     for (var ele in allData) {
       if (ele['email'] == email) {
         appoimentData.add(ele);
+        dataLength = index++;
       }
     }
     return appoimentData;

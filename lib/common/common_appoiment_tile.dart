@@ -4,30 +4,22 @@ import 'package:beauty_master/utils/BMWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-// ignore: must_be_immutable
-class commonAppoimentTile extends StatefulWidget {
-  commonAppoimentTile({Key? key, required this.isSelected}) : super(key: key);
-  bool isSelected;
-
-  @override
-  State<commonAppoimentTile> createState() => _commonAppoimentTileState();
-}
-
-class _commonAppoimentTileState extends State<commonAppoimentTile> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
+Widget commonAppoimentTile(
+  BuildContext context, {
+  required bool isSelected,
+}) =>
+    Container(
       margin: EdgeInsets.symmetric(vertical: 8),
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: widget.isSelected
+        color: isSelected
             ? appStore.isDarkModeOn
                 ? Colors.white.withAlpha(30)
                 : bmSpecialColorDark.withAlpha(30)
             : context.cardColor,
         borderRadius: radius(32),
         border: Border.all(
-            color: widget.isSelected
+            color: isSelected
                 ? appStore.isDarkModeOn
                     ? Colors.white
                     : bmSpecialColorDark
@@ -81,8 +73,5 @@ class _commonAppoimentTileState extends State<commonAppoimentTile> {
         ],
       ),
     ).onTap(() {
-      widget.isSelected = !widget.isSelected;
-      setState(() {});
+      isSelected = !isSelected;
     });
-  }
-}
