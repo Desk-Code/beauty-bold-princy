@@ -30,12 +30,16 @@ class _BMSplashScreenState extends State<BMSplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: white,
       body: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
+          Container(
+            // decoration: BoxDecoration(
+            //     color: appStore.isDarkModeOn
+            //         ? appStore.scaffoldBackground!
+            //         : bmLightScaffoldBackgroundColor),
             child: Lottie.asset(
               "images/animation_lkece2qv.json",
               controller: _animationController,

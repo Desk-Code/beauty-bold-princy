@@ -39,9 +39,7 @@ class _BMAppointmentFragmentState extends State<BMAppointmentFragment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appStore.isDarkModeOn
-          ? appStore.scaffoldBackground!
-          : bmLightScaffoldBackgroundColor,
+      backgroundColor: white,
       appBar: AppBar(
         backgroundColor: appStore.isDarkModeOn
             ? appStore.scaffoldBackground!
