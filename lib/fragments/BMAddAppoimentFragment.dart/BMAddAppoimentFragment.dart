@@ -67,7 +67,6 @@ class _BMAddAppoimentFragmentState extends State<BMAddAppoimentFragment> {
                       ]),
                       keyboardType: TextInputType.name,
                       textFieldType: TextFieldType.NAME,
-                      autoFocus: true,
                       cursorColor: bmPrimaryColor,
                       textStyle: boldTextStyle(
                           color: appStore.isDarkModeOn
